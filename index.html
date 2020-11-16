@@ -3,12 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous" />
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <title>Weather Dashboard</title>
 </head>
 <body>
-
+    <header class="bg-dark text-white p-2 text-center">
+        <h1>Weather Dashboard</h1>
+    </header>
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <div class="col-12">
+                <form>
+                    <div class="input-group mb-3 form-group">
+                        <input type="text" class="form-control full-height" placeholder="Location" aria-label="weather Location" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary d-flex align-items-center" type="submit"><span class="material-icons">search</span></button>
+                        </div>
+                    </div>
+                    <div class="form-group d-flex flex-column">
+                        <button type="submit" class="btn btn-light" data-location="philadelphia">Philadelphia</button>
+                        <button type="submit" class="btn btn-light" data-location="seattle">Seattle</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12">
+                <div class="container-fluid">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <div class="location-current">
+                                <h2>Philadelphia (11/16/2020)</h2>
+                                <p>Temperature: 90.9 F</p>
+                                <p>Humidity: 41%</p>
+                                <p>Wind Speed: 4.7 mph</p>
+                                <p>UV Index: 9.49</p>                                
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <h3>5-Day Forecast:</h3>
+                            <div class="forecast d-flex flex-column flex-lg-row">
+                                <div class="day">
+                                    <img src="https://via.placeholder.com/150">
+                                </div>
+                                <div class="day">
+                                    <img src="https://via.placeholder.com/150">
+                                </div>
+                                <div class="day">
+                                    <img src="https://via.placeholder.com/150">
+                                </div>
+                                <div class="day">
+                                    <img src="https://via.placeholder.com/150">
+                                </div>
+                                <div class="day">
+                                    <img src="https://via.placeholder.com/150">
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
     
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js" integrity="sha512-8qmis31OQi6hIRgvkht0s6mCOittjMa9GMqtK9hes5iEQBQE/Ca6yGE5FsW36vyipGoWQswBj/QBm2JR086Rkw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
