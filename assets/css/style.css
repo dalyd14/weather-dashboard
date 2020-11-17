@@ -2,6 +2,10 @@
     height: auto
 }
 .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+.outer-container {
     padding-left: 5px;
     padding-right: 5px;
 }
