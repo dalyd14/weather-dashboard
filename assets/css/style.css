@@ -14,3 +14,9 @@
     border: 1px solid lightgray;
     border-radius: 10px;
 }
+
+.day {
+    border-radius: 10px;
+    background-color: aliceblue;
+    border: 1px solid lightgray;
+}
