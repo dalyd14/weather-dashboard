@@ -15,16 +15,14 @@
     <div class="container-fluid outer-container">
         <div class="row no-gutters">
             <div class="col-12">
-                <form>
+                <form id="weather-city-form">
                     <div class="input-group mb-3 form-group">
                         <input type="text" class="form-control full-height" placeholder="Location" aria-label="weather Location" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary d-flex align-items-center" type="submit"><span class="material-icons">search</span></button>
                         </div>
                     </div>
-                    <div class="form-group d-flex flex-column">
-                        <button type="submit" class="btn btn-light" data-location="philadelphia">Philadelphia</button>
-                        <button type="submit" class="btn btn-light" data-location="seattle">Seattle</button>
+                    <div class="form-group d-flex flex-column" id="saved-locations-list">
                     </div>
                 </form>
             </div>
@@ -35,14 +33,6 @@
                             <div class="container-fluid">
                                 <div class="row no-gutters">
                                     <div class="col-12">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.24173024751!2d-82.83905408446824!3d34.673848092163034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88585e1135ab658d%3A0x8d3219cb792a8e56!2sClemson%20University!5e0!3m2!1sen!2sus!4v1605642253660!5m2!1sen!2sus" 
-                                            width="100%" 
-                                            height="300" 
-                                            frameborder="0" 
-                                            style="border:0;" 
-                                            allowfullscreen="" 
-                                            aria-hidden="false" 
-                                            tabindex="0"></iframe>
                                     </div>
                                     <div class="col-12">
                                         <div class="location-current">
@@ -57,7 +47,7 @@
                             </div>                            
                         </div>
                         <div class="col-12">
-                            <h3>5-Day Forecast for <span id="searched-location"></span>:</h3>
+                            <h3>5-Day Forecast: <span id="searched-location"></span></h3>
                             <div class="forecast d-flex flex-column flex-lg-row" id="forecast-container"></div>
                         </div>
                     </div>                    
@@ -70,6 +60,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js" integrity="sha512-8qmis31OQi6hIRgvkht0s6mCOittjMa9GMqtK9hes5iEQBQE/Ca6yGE5FsW36vyipGoWQswBj/QBm2JR086Rkw==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script src="./assets/js/form-functions.js"></script>
     <script src="./assets/js/display-data.js"></script>
     <script src="./assets/js/receive-data.js"></script>
 </body>
