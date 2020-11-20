@@ -1,6 +1,7 @@
 var apiKey = "3b8af5258910a4f3c339b1d0c483f2eb"
 
 var getWeatherFromLoc = function(name, lat, lon) {
+    console.log("Im now in the get weather from coord")
     if(!checkIfLocExists(name, lat, lon) || savedLocations.length===0) {
         savedLocations.push(
             {
@@ -24,11 +25,14 @@ var getWeatherFromLoc = function(name, lat, lon) {
                 domForecastElGeneration(forecastData)
                 console.log(forecastData)
             })
+        } else {
+            console.log("there was an error in the onecall fetch")
         }
     })
 }
 
 var getLatLonFromCity = function(city) {
+    console.log("im at the lat lon thing")
     var apiCurrentUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey
     fetch(apiCurrentUrl).then(function(response1) {
         if(response1.ok) {
@@ -36,6 +40,8 @@ var getLatLonFromCity = function(city) {
                 console.log(data)
                 getWeatherFromLoc(data.name, data.coord.lat, data.coord.lon)
             })
+        } else {
+            console.log("there was an error in the latlon from city fetch")
         }
     })
 }

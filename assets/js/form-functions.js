@@ -1,11 +1,12 @@
 $("#weather-city-form").on("submit", function(event) {
-    $("#page-title").text("Hello there")
     console.log("something submitted")
     event.preventDefault()
     if ($(event)[0].originalEvent.submitter.id === "searchCityName") {
+        console.log("got inside the if statement")
         var searchTerm = $("#citySearchInput").val().trim()
         var status = checkCityInput(searchTerm)
         if (status === "cityName") {
+            console.log("gonna call the lat lon thing")
             getLatLonFromCity(searchTerm)
             $("#citySearchInput").val("")
         } else if (status === "zipCode") {
