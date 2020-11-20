@@ -32,20 +32,18 @@ var domForecastElGeneration = function(data) {
         var dayDate = $("<h5>").text(moment.unix(data.daily[i].dt).utc().format("ddd MM/DD/YY"))
         var dayDescription = $("<h5>").addClass("text-capitalize").text(data.daily[i].weather[0].description)
         headerDiv.append(dayDate, dayDescription)
-        var dayContainer = $("<div>").addClass("Container-fluid").html(
+        var dayRow = $("<div>").addClass("row no-gutters").html(
             `
-            <div class='row'>
-                <div class='col-6'>
-                    <img class='day-img' src='https://openweathermap.org/img/wn/` + data.daily[i].weather[0].icon + `@2x.png'/>
-                </div>
-                <div class='col-6'>
-                    <p>Max Temp: ` + data.daily[i].temp.max + ` F</p>
-                    <p>Min Temp: ` + data.daily[i].temp.min + ` F</p>
-                </div>
+            <div class='col-6'>
+                <img class='day-img' src='https://openweathermap.org/img/wn/` + data.daily[i].weather[0].icon + `@2x.png'/>
+            </div>
+            <div class='col-6'>
+                <p>Max Temp: ` + data.daily[i].temp.max + ` F</p>
+                <p>Min Temp: ` + data.daily[i].temp.min + ` F</p>
             </div>
             `
         )
-        dayDiv.append(headerDiv, dayContainer)
+        dayDiv.append(headerDiv, dayRow)
         $("#forecast-container").append(dayDiv)
     }
 }
