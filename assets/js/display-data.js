@@ -42,10 +42,6 @@ var populateCurrent = function(forecastData) {
 var domForecastElGeneration = function(data) {
     for(var i=1; i < 6; i++) {
         var dayDiv = $("<div>").addClass("day p-2 mb-1")
-        // var headerDiv = $("<div>").addClass("d-flex justify-content-between")
-        // var dayDate = $("<h5>").text()
-        // var dayDescription = $("<h5>").addClass("text-capitalize").text(data.daily[i].weather[0].description)
-        // headerDiv.append(dayDate, dayDescription)
         dayDiv.html(
             `
             <div class='row no-gutters'>
@@ -60,12 +56,11 @@ var domForecastElGeneration = function(data) {
                 <div class='col-6'>
                     <img class='day-img' src='https://openweathermap.org/img/wn/` + data.daily[i].weather[0].icon + `@2x.png'/>
                 </div>
-                <div class='col-6'>
+                <div class='col-6 d-flex flex-column justify-content-center'>
                     <p>Max Temp: ` + data.daily[i].temp.max + ` °F</p>
                     <p>Min Temp: ` + data.daily[i].temp.min + ` °F</p>
                 </div>
             </div>
-
             `
         )
         $("#forecast-container").append(dayDiv)
