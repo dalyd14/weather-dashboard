@@ -10,6 +10,26 @@
     padding-right: 5px;
 }
 
+body {
+    position: relative;
+}
+
+header {
+    margin-bottom: 5px;
+    position: sticky;
+    top: 0px;
+
+    z-index: 15;
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+.form-group {
+    margin-bottom: .5rem;
+}
+
 .location-current {
     border: 1px solid lightgray;
     border-radius: 10px;
@@ -33,8 +53,4 @@
 .location-name-btn h4 {
     margin: 0;
     font-size: 20px;
-}
-
-.btn-group {
-    margin-bottom: 2px;
 }

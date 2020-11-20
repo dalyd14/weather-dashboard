@@ -9,14 +9,15 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <header class="bg-dark text-white p-2 text-center">
+    <header class="bg-dark text-white p-2 text-center mb-2">
         <h1>Weather Dashboard</h1>
+        <h2><span id="searched-location"></span></h2>
     </header>
     <div class="container-fluid outer-container">
         <div class="row no-gutters">
             <div class="col-12">
                 <form id="weather-city-form">
-                    <div class="input-group mb-3 form-group">
+                    <div class="input-group mb-2 form-group">
                         <input type="text" class="form-control full-height" id="citySearchInput" placeholder="Location" aria-label="weather Location" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary d-flex align-items-center" id="searchCityName" type="submit"><span class="material-icons">search</span></button>
@@ -28,23 +29,21 @@
             </div>
             <div class="col-12">
                 <div class="row no-gutters">
-                    <div class="col-12">
+                    <div class="col-12 mb-2">
                         <div class="row no-gutters">
                             <div class="col-12">
-                            </div>
-                            <div class="col-12">
-                                <div class="location-current">
-                                    <h2><span id="searched-location"></span> (<span id="todays-date"></span>)</h2>
+                                <h3>Today (<span id="todays-date"></span>)</h3>
+                                <div class="location-current p-2">    
                                     <p>Temperature: <span id="current-temp"></span></p>
                                     <p>Humidity: <span id="current-humidity"></span></p>
                                     <p>Wind Speed: <span id="current-wind-speed"></span></p>
-                                    <p>UV Index: <span id="current-uv-index"></span></p>                                
+                                    <p>UV Index: <span id="current-uv-index"></span></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <h3>5-Day Forecast: <span id="searched-location"></span></h3>
+                    <div class="col-12 mb-2">
+                        <h3>5-Day Forecast:</h3>
                         <div class="forecast d-flex flex-column flex-lg-row" id="forecast-container"></div>
                     </div>
                 </div>
