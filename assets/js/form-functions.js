@@ -1,19 +1,24 @@
-var savedLocations = [
-    {
-        cityName: "Philadelphia",
-        lat: "39.95",
-        lon: "-75.16"
-    }
-]
-
 $("#weather-city-form").on("submit", function(event) {
     event.preventDefault()
-    console.log("Hello There!")
+    if ($(event)[0].originalEvent.submitter.id === "searchCityName") {
+        console.log("you searched for a city")
+        var searchTerm = $("#citySearchInput").val().trim()
+        var status = checkCityInput(searchTerm)
+        if (status === "cityName") {
+            getLatLonFromCity(searchTerm)
+            $("citySearchInput").val("")
+        } else if (status === "zipCode") {
+            getLatLonFromZip(searchTerm)
+            $("citySearchInput").val("")
+        } else {
+            alert("please enter in a valid location")
+        }
+    }
 })
 
 var checkCityInput = function(city) {
     var numbers = "1234567890"
-    var letters = "abcdefghijklmnopqrstuvwxyz"
+    var letters = "abcdefghijklmnopqrstuvwxyz "
 
     var isLetter = true;
     var isNumber = false;
@@ -43,18 +48,21 @@ var checkCityInput = function(city) {
             }
         }
     }
-
     if (message==="passed" && isLetter) {
-        callApiCity(city)
+        return "cityName"
     } else if (message==="passed" && isNumber) {
-        callApiZip(city)
+        return "zipCode"
+    } else {
+        return "error"
     }
 }
 
 var receiveSavedLocations = function() {
-    savedLocations = JSON.parse(localStorage.getItem("weatherDashboardSavedCitys"))
+    savedLocations = JSON.parse(localStorage.getItem("weatherDashboardSavedCitys")) || []
 }
 
 var setSavedLocations = function() {
     localStorage.setItem("weatherDashboardSavedCitys", JSON.stringify(savedLocations))
 }
+
+receiveSavedLocations()

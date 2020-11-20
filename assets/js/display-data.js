@@ -1,5 +1,6 @@
 
 var displaySavedLocation = function(savedLocations) {
+    $("#saved-locations-list").empty()
     for (var i = 0; i < savedLocations.length; i++) {
         var locationButtonEl = $("<button>")
             .addClass("btn btn-light")
@@ -14,9 +15,10 @@ var displaySavedLocation = function(savedLocations) {
 
 displaySavedLocation(savedLocations)
 
-var populateLocation = function(data) {
-    $("[id=searched-location]").text(data.name)
+var populateLocation = function(name) {
+    $("[id=searched-location]").text(name)
 }
+
 var populateCurrent = function(forecastData) {
     $("#todays-date").text(moment().format("MM/DD/YYYY"))
     $("#current-temp").text(forecastData.current.temp + " F")
