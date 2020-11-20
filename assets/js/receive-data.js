@@ -27,7 +27,7 @@ var getWeatherFromLoc = function(name, lat, lon) {
 }
 
 var getLatLonFromCity = function(city) {
-    var apiCurrentUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey
+    var apiCurrentUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey
     fetch(apiCurrentUrl).then(function(response1) {
         if(response1.ok) {
             response1.json().then(function(data) {
@@ -38,7 +38,7 @@ var getLatLonFromCity = function(city) {
 }
 
 var getLatLonFromZip = function(zip) {
-    var apiCurrentUrl = "http://api.openweathermap.org/data/2.5/weather?zip=" + zip + "&units=imperial&appid=" + apiKey
+    var apiCurrentUrl = "https://api.openweathermap.org/data/2.5/weather?zip=" + zip + "&units=imperial&appid=" + apiKey
     fetch(apiCurrentUrl).then(function(response1) {
         if(response1.ok) {
             response1.json().then(function(data) {
