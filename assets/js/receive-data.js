@@ -18,6 +18,7 @@ var getWeatherFromLoc = function(name, lat, lon) {
         if(response2.ok) {
             response2.json().then(function(forecastData) {
                 $("#forecast-container").empty()
+                $("#weather-displayer").removeClass("d-none")
                 populateLocation(name)
                 populateCurrent(forecastData)
                 domForecastElGeneration(forecastData)
@@ -61,5 +62,6 @@ var checkIfLocExists = function(name, lat, lon) {
 }
 
 if (savedLocations.length > 0) {
+    $("#weather-displayer").removeClass("d-none")
     getWeatherFromLoc(savedLocations[0].cityName, savedLocations[0].lat, savedLocations[0].lon)
 }
