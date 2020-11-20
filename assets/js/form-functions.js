@@ -1,6 +1,6 @@
 $("#weather-city-form").on("submit", function(event) {
-    console.log("something submitted")
     event.preventDefault()
+    console.log("something submitted", $(event)[0].originalEvent.submitter.id)
     if ($(event)[0].originalEvent.submitter.id === "searchCityName") {
         console.log("got inside the if statement")
         var searchTerm = $("#citySearchInput").val().trim()
