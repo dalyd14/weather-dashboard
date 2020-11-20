@@ -41,7 +41,7 @@ var populateCurrent = function(forecastData) {
 
 var domForecastElGeneration = function(data) {
     for(var i=1; i < 6; i++) {
-        var dayDiv = $("<div>").addClass("day p-2 mb-1")
+        var dayDiv = $("<div>").addClass("day p-2 mb-1 mr-lg-1 col-12 col-lg-5")
         dayDiv.html(
             `
             <div class='row no-gutters'>
