@@ -1,5 +1,7 @@
 $("#weather-city-form").on("submit", function(event) {
+    console.log("hello before preventDefault")
     event.preventDefault()
+    console.log("something was submitted")
     console.log("something submitted", $(event)[0].originalEvent.submitter.id)
     if ($(event)[0].originalEvent.submitter.id === "searchCityName") {
         console.log("got inside the if statement")
