@@ -2,14 +2,26 @@
 var displaySavedLocation = function(savedLocations) {
     $("#saved-locations-list").empty()
     for (var i = 0; i < savedLocations.length; i++) {
+        var buttonGroupEl = $("<div>")
+            .addClass("btn-group")
+            .attr("role", "group")
         var locationButtonEl = $("<button>")
-            .addClass("btn btn-light")
+            .addClass("btn btn-light location-name-btn")
+            .attr("id", "location-btn")
             .attr("type", "submit")
-            .attr("data-location", savedLocations[i].cityName.toLowerCase())
-            .attr("data-lat", savedLocations[i].lat)
-            .attr("data-lon", savedLocations[i].lon)
-            .text(savedLocations[i].cityName)
-        $("#saved-locations-list").append(locationButtonEl)
+        var locationBtnDiv = $("<div>")
+            .append($("<h4>").text(savedLocations[i].cityName))
+        locationButtonEl.append(locationBtnDiv)   
+        var delLocationBtnEl = $("<button>")
+            .addClass("btn btn-light remove-location-btn")
+            .attr("id", "remove-loc-btn")
+            .attr("type", "submit")
+        var delLocationDiv = $("<div>")
+            .html("&times")
+        delLocationBtnEl.append(delLocationDiv)       
+        buttonGroupEl.append(locationButtonEl, delLocationBtnEl)
+        
+        $("#saved-locations-list").append(buttonGroupEl)
     }
 }
 

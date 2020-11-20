@@ -1,18 +1,27 @@
 $("#weather-city-form").on("submit", function(event) {
     event.preventDefault()
     if ($(event)[0].originalEvent.submitter.id === "searchCityName") {
-        console.log("you searched for a city")
         var searchTerm = $("#citySearchInput").val().trim()
         var status = checkCityInput(searchTerm)
         if (status === "cityName") {
             getLatLonFromCity(searchTerm)
-            $("citySearchInput").val("")
+            $("#citySearchInput").val("")
         } else if (status === "zipCode") {
             getLatLonFromZip(searchTerm)
-            $("citySearchInput").val("")
+            $("#citySearchInput").val("")
         } else {
             alert("please enter in a valid location")
         }
+    } else if ($(event)[0].originalEvent.submitter.id === "location-btn") {
+        var btnIndex = $($(event.originalEvent.submitter).closest(".btn-group")).index()
+        $("#citySearchInput").val("")
+        getWeatherFromLoc(savedLocations[btnIndex].cityName, savedLocations[btnIndex].lat, savedLocations[btnIndex].lon)
+    } else if ($(event)[0].originalEvent.submitter.id === "remove-loc-btn") {
+        var btnIndex = $($(event.originalEvent.submitter).closest(".btn-group")).index()
+        $("#citySearchInput").val("")
+        savedLocations.splice(btnIndex, 1)
+        setSavedLocations()
+        displaySavedLocation(savedLocations)
     }
 })
 

@@ -10,17 +10,17 @@ var getWeatherFromLoc = function(name, lat, lon) {
             }
         )
         setSavedLocations()
-        displaySavedLocation(savedLocations)        
+        displaySavedLocation(savedLocations)
     }
 
     var apiOneCallUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&units=imperial&appid=" + apiKey
     fetch(apiOneCallUrl).then(function(response2) {
         if(response2.ok) {
             response2.json().then(function(forecastData) {
+                $("#forecast-container").empty()
                 populateLocation(name)
                 populateCurrent(forecastData)
                 domForecastElGeneration(forecastData)
-                console.log(forecastData)
             })
         }
     })
@@ -31,7 +31,6 @@ var getLatLonFromCity = function(city) {
     fetch(apiCurrentUrl).then(function(response1) {
         if(response1.ok) {
             response1.json().then(function(data) {
-                console.log(data)
                 getWeatherFromLoc(data.name, data.coord.lat, data.coord.lon)
             })
         }
@@ -43,7 +42,6 @@ var getLatLonFromZip = function(zip) {
     fetch(apiCurrentUrl).then(function(response1) {
         if(response1.ok) {
             response1.json().then(function(data) {
-                console.log(data)
                 getWeatherFromLoc(data.name, data.coord.lat, data.coord.lon)
             })
         }
