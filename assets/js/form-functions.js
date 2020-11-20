@@ -2,7 +2,9 @@ $("#weather-city-form").on("submit", function(event) {
     console.log("hello before preventDefault")
     event.preventDefault()
     console.log("something was submitted")
-    console.log("something submitted", $(event)[0].originalEvent.submitter.id)
+    console.log({
+        color: "red"
+    })
     if ($(event)[0].originalEvent.submitter.id === "searchCityName") {
         console.log("got inside the if statement")
         var searchTerm = $("#citySearchInput").val().trim()
@@ -27,6 +29,8 @@ $("#weather-city-form").on("submit", function(event) {
         savedLocations.splice(btnIndex, 1)
         setSavedLocations()
         displaySavedLocation(savedLocations)
+    } else {
+        console.log("I never made it into the if statement")
     }
 })
 
