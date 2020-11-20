@@ -22,6 +22,7 @@ var getWeatherFromLoc = function(name, lat, lon) {
                 populateLocation(name)
                 populateCurrent(forecastData)
                 domForecastElGeneration(forecastData)
+                console.log(forecastData)
             })
         }
     })
@@ -32,6 +33,7 @@ var getLatLonFromCity = function(city) {
     fetch(apiCurrentUrl).then(function(response1) {
         if(response1.ok) {
             response1.json().then(function(data) {
+                console.log(data)
                 getWeatherFromLoc(data.name, data.coord.lat, data.coord.lon)
             })
         }
@@ -43,6 +45,7 @@ var getLatLonFromZip = function(zip) {
     fetch(apiCurrentUrl).then(function(response1) {
         if(response1.ok) {
             response1.json().then(function(data) {
+                console.log(data)
                 getWeatherFromLoc(data.name, data.coord.lat, data.coord.lon)
             })
         }

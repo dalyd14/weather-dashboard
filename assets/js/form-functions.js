@@ -1,4 +1,6 @@
 $("#weather-city-form").on("submit", function(event) {
+    $("#page-title").text("Hello there")
+    console.log("something submitted")
     event.preventDefault()
     if ($(event)[0].originalEvent.submitter.id === "searchCityName") {
         var searchTerm = $("#citySearchInput").val().trim()
