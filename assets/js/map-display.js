@@ -1,4 +1,5 @@
-var displayMap = function (lat, lon) {    
+var displayMap = function (lat, lon) {
+    $("#please-delete-me").remove() 
     var map = new mapboxgl.Map({
         center: [lon, lat],
         zoom: 12,
