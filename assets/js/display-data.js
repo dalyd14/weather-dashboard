@@ -37,6 +37,18 @@ var populateCurrent = function(forecastData) {
     $("#current-humidity").text(forecastData.current.humidity + "%")
     $("#current-wind-speed").text(forecastData.current.wind_speed + " mph")
     $("#current-uv-index").text(forecastData.current.uvi)
+    $("#current-uv-index").removeClass()
+    if(forecastData.current.uvi <3) {
+        $("#current-uv-index").addClass("uv-low")
+    } else if (forecastData.current.uvi <6) {
+        $("#current-uv-index").addClass("uv-mod")
+    } else if (forecastData.current.uvi <8) {
+        $("#current-uv-index").addClass("uv-high")
+    } else if (forecastData.current.uvi <11) {
+        $("#current-uv-index").addClass("uv-vhigh")
+    } else if (forecastData.current.uvi >=11) {
+        $("#current-uv-index").addClass("uv-extr")
+    }
 }
 
 var domForecastElGeneration = function(data) {
