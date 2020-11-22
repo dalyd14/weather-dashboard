@@ -73,6 +73,6 @@ if (savedLocations.length > 0) {
     getWeatherFromLoc(savedLocations[0].cityName, savedLocations[0].lat, savedLocations[0].lon)
     setTimeout(function(){
         $("#saved-locations-list").children().eq(0).find("#location-btn").trigger("click")
-    }, 1000)
+    }, 100)
     
 }
