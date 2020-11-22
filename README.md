@@ -1,5 +1,16 @@
 # weather-dashboard
 
+## Approach
+- I took a mobile-first approach.
+- I also wanted to include a map for the locations that are entered. This was because the OpenWeather API doesn't give great support for what state your results are in. Therefore, if a user enters "Greenville" they will know what particular Greenville it is displaying the weather for.
+- This also supports searching via zipcode
+- There are error indicators that will be displayed when certain things go awry
+- there is functionality available to delete some of the saved locations
+- By default, the app will load the first location in the saved locations array
+
+## Screenshot
+![Screenshot of weather dashboard](./assets/img/weather-dashboard.png)
+
 ## Purpose
 AS A traveler\
 I WANT to see the weather outlook for multiple cities\
