@@ -24,7 +24,7 @@ var getWeatherFromLoc = function(name, lat, lon) {
                 domForecastElGeneration(forecastData)
             })
         } else {
-            console.log("there was an error in the onecall fetch")
+            enterErrorMessage("There was an error receiving the weather for that location.")
         }
     })
 }
@@ -37,7 +37,7 @@ var getLatLonFromCity = function(city) {
                 getWeatherFromLoc(data.name, data.coord.lat, data.coord.lon)
             })
         } else {
-            console.log("there was an error in the latlon from city fetch")
+            enterErrorMessage("Invalid city name entered.")
         }
     })
 }
@@ -49,6 +49,8 @@ var getLatLonFromZip = function(zip) {
             response1.json().then(function(data) {
                 getWeatherFromLoc(data.name, data.coord.lat, data.coord.lon)
             })
+        } else {
+            enterErrorMessage("Invalid zip code entered.")
         }
     })
 }
@@ -56,10 +58,10 @@ var getLatLonFromZip = function(zip) {
 var checkIfLocExists = function(name, lat, lon) {
     var status = false
     savedLocations.forEach(function(savedLoc) {
-        if (savedLoc.cityName === name &&
-            savedLoc.lat === lat &&
-            savedLoc.lon === lon) {
+        if (savedLoc.cityName === name) {
+            if (Math.abs((savedLoc.lat-lat)/lat) < .01 && Math.abs((savedLoc.lon-lon)/lon) < .01) {
                 status = true
+            }
         }
     })
     return status

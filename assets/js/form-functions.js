@@ -1,4 +1,5 @@
 $("#weather-city-form").on("submit", function(event) {
+    clearErrorMessage()
     event.preventDefault()
     var searchTerm = $("#citySearchInput").val().trim()
     var status = checkCityInput(searchTerm)
@@ -8,24 +9,32 @@ $("#weather-city-form").on("submit", function(event) {
     } else if (status === "zipCode") {
         getLatLonFromZip(searchTerm)
         $("#citySearchInput").val("")
-    } else {
-        alert("please enter in a valid location")
     }
 })
 
 $("#saved-locations-list").on("click", "#location-btn", function(){
+    clearErrorMessage()
     var btnIndex = $(this).closest(".btn-group").index()
     $("#citySearchInput").val("")
     getWeatherFromLoc(savedLocations[btnIndex].cityName, savedLocations[btnIndex].lat, savedLocations[btnIndex].lon)
 })
 
 $("#saved-locations-list").on("click", "#remove-loc-btn", function(){
+    clearErrorMessage()
     var btnIndex = $(this).closest(".btn-group").index()
     $("#citySearchInput").val("")
     savedLocations.splice(btnIndex, 1)
     setSavedLocations()
     displaySavedLocation(savedLocations)
 })
+
+var clearErrorMessage = function() {
+    $("#search-error-display").text("")
+}
+
+var enterErrorMessage = function(msg) {
+    $("#search-error-display").text(msg)
+}
 
 var checkCityInput = function(city) {
     var numbers = "1234567890"
@@ -44,7 +53,8 @@ var checkCityInput = function(city) {
             } else if (isLetter && !isNumber) {
 
             } else {
-                message = "invalid number included in city name"
+                message = "Invalid number included in city name"
+                enterErrorMessage(message)
                 break;
             }
         } else if (numbers.includes(city[i])) {
@@ -54,7 +64,8 @@ var checkCityInput = function(city) {
             } else if (!isLetter && isNumber) {
 
             } else {
-                message = "invalid letter included in zip code"
+                message = "Invalid letter included in zip code"
+                enterErrorMessage(message)
                 break;
             }
         }
