@@ -14,6 +14,7 @@ var getWeatherFromLoc = function(name, lat, lon) {
     }
 
     var apiOneCallUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&units=imperial&appid=" + apiKey
+    displayMap(lat, lon)
     fetch(apiOneCallUrl).then(function(response2) {
         if(response2.ok) {
             response2.json().then(function(forecastData) {

@@ -90,3 +90,16 @@ p {
 .uv-extr {
     background-color: #6B48C7;
 }
+
+.container-for-map {
+    position: relative;
+    height: 225px;
+    width: 100%;
+}
+
+#location-map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
