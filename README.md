@@ -1,5 +1,8 @@
 # weather-dashboard
 
+## Website Link
+[Weather Dashboard](https://dalyd14.github.io/weather-dashboard/)
+
 ## Approach
 - I took a mobile-first approach.
 - I also wanted to include a map for the locations that are entered. This was because the OpenWeather API doesn't give great support for what state your results are in. Therefore, if a user enters "Greenville" they will know what particular Greenville it is displaying the weather for.
