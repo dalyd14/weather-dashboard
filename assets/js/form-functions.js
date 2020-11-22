@@ -1,37 +1,30 @@
 $("#weather-city-form").on("submit", function(event) {
-    console.log("hello before preventDefault")
     event.preventDefault()
-    console.log("something was submitted")
-    console.log({
-        color: "red"
-    })
-    if ($(event)[0].originalEvent.submitter.id === "searchCityName") {
-        console.log("got inside the if statement")
-        var searchTerm = $("#citySearchInput").val().trim()
-        var status = checkCityInput(searchTerm)
-        if (status === "cityName") {
-            console.log("gonna call the lat lon thing")
-            getLatLonFromCity(searchTerm)
-            $("#citySearchInput").val("")
-        } else if (status === "zipCode") {
-            getLatLonFromZip(searchTerm)
-            $("#citySearchInput").val("")
-        } else {
-            alert("please enter in a valid location")
-        }
-    } else if ($(event)[0].originalEvent.submitter.id === "location-btn") {
-        var btnIndex = $($(event.originalEvent.submitter).closest(".btn-group")).index()
+    var searchTerm = $("#citySearchInput").val().trim()
+    var status = checkCityInput(searchTerm)
+    if (status === "cityName") {
+        getLatLonFromCity(searchTerm)
         $("#citySearchInput").val("")
-        getWeatherFromLoc(savedLocations[btnIndex].cityName, savedLocations[btnIndex].lat, savedLocations[btnIndex].lon)
-    } else if ($(event)[0].originalEvent.submitter.id === "remove-loc-btn") {
-        var btnIndex = $($(event.originalEvent.submitter).closest(".btn-group")).index()
+    } else if (status === "zipCode") {
+        getLatLonFromZip(searchTerm)
         $("#citySearchInput").val("")
-        savedLocations.splice(btnIndex, 1)
-        setSavedLocations()
-        displaySavedLocation(savedLocations)
     } else {
-        console.log("I never made it into the if statement")
+        alert("please enter in a valid location")
     }
+})
+
+$("#saved-locations-list").on("click", "#location-btn", function(){
+    var btnIndex = $(this).closest(".btn-group").index()
+    $("#citySearchInput").val("")
+    getWeatherFromLoc(savedLocations[btnIndex].cityName, savedLocations[btnIndex].lat, savedLocations[btnIndex].lon)
+})
+
+$("#saved-locations-list").on("click", "#remove-loc-btn", function(){
+    var btnIndex = $(this).closest(".btn-group").index()
+    $("#citySearchInput").val("")
+    savedLocations.splice(btnIndex, 1)
+    setSavedLocations()
+    displaySavedLocation(savedLocations)
 })
 
 var checkCityInput = function(city) {
