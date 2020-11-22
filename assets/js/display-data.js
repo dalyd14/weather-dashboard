@@ -38,16 +38,22 @@ var populateCurrent = function(forecastData) {
     $("#current-wind-speed").text(forecastData.current.wind_speed + " mph")
     $("#current-uv-index").text(forecastData.current.uvi)
     $("#current-uv-index").removeClass()
+    $("#uv-message").removeClass()
     if(forecastData.current.uvi <3) {
         $("#current-uv-index").addClass("uv-low")
+        $("#uv-message").addClass("uv-low-msg").text(" - Low Risk")
     } else if (forecastData.current.uvi <6) {
         $("#current-uv-index").addClass("uv-mod")
+        $("#uv-message").addClass("uv-mod-msg").text(" - Moderate Risk")
     } else if (forecastData.current.uvi <8) {
         $("#current-uv-index").addClass("uv-high")
+        $("#uv-message").addClass("uv-high-msg").text(" - High Risk")
     } else if (forecastData.current.uvi <11) {
         $("#current-uv-index").addClass("uv-vhigh")
+        $("#uv-message").addClass("uv-vhigh-msg").text(" - Very High Risk")
     } else if (forecastData.current.uvi >=11) {
         $("#current-uv-index").addClass("uv-extr")
+        $("#uv-message").addClass("uv-extr-msg").text(" - Extreme Risk")
     }
 }
 

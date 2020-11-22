@@ -74,5 +74,4 @@ if (savedLocations.length > 0) {
     setTimeout(function(){
         $("#saved-locations-list").children().eq(0).find("#location-btn").trigger("click")
     }, 100)
-    
 }

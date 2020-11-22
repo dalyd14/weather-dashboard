@@ -91,6 +91,22 @@ p {
     background-color: #6B48C7;
 }
 
+.uv-low-msg {
+    color: #279400;
+}
+.uv-mod-msg {
+    color: #F7E400;
+}
+.uv-high-msg {
+    color: #F85900;
+}
+.uv-vhigh-msg {
+    color: #D8001C;
+}
+.uv-extr-msg {
+    color: #6B48C7;
+}
+
 .container-for-map {
     position: relative;
     height: 225px;
