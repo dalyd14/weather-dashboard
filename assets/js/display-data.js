@@ -59,6 +59,7 @@ var domForecastElGeneration = function(data) {
                 <div class='col-6 d-flex flex-column justify-content-center'>
                     <p>Max Temp: ` + data.daily[i].temp.max + ` °F</p>
                     <p>Min Temp: ` + data.daily[i].temp.min + ` °F</p>
+                    <p>Humidity: ` + data.daily[i].humidity + `%</p>
                 </div>
             </div>
             `
